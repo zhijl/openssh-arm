@@ -1,0 +1,17 @@
+sudo: false
+
+language: cpp
+
+matrix:
+  include:
+    - name: "linux-gcc-x86_64"
+      os: linux
+      arch: x86_64
+      dist: bionic
+      compiler: gcc
+      env:
+        - NAME=linux-gcc
+        - BUILD="./fetch.sh && ./build_x86_64.sh"
+
+script:
+  - eval "${BUILD}"
